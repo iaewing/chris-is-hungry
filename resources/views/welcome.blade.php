@@ -1552,7 +1552,7 @@
                 class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
                 <h1 class="mb-1 font-medium">Chris is Hungry</h1>
                 <form action="{{ route('store') }}" method="POST" class="flex flex-col gap-2">
-                @csrf
+                    @csrf
                     <div>
                         <label for="date">Date</label>
                         <input type="date" name="date" id="date" />
@@ -1569,14 +1569,24 @@
             </div>
             <div
                 class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
-                <div class="grid grid-cols-2 gap-x-4">
-                    <div class="text-2xl col-span-2 mb-4">Top 5 of All Time</div>
-                    <p class="font-medium">Date</p>
-                    <p class="font-medium">Time</p>
-                    @foreach($entries as $entry)
-                        <p>{{ $entry->date }}</p>
-                        <p>{{ $entry->time }}</p>
-                    @endforeach
+                <div class="mb-4">
+                    <h2 class="text-2xl mb-4">Top 5 of All Time</h2>
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr>
+                                <th class="font-medium pb-2">Date</th>
+                                <th class="font-medium pb-2">Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($entries as $entry)
+                                <tr>
+                                    <td class="py-1">{{ $entry->date }}</td>
+                                    <td class="py-1">{{ $entry->time }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </main>
