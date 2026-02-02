@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome', [
-        'entries' => HungryEntry::orderBy('date', 'desc')->orderBy('time', 'desc')->limit(5)->get(),
+        'entries' => HungryEntry::orderBy('time', 'asc')->limit(5)->get(),
     ]);
 })->name('dashboard');
 
