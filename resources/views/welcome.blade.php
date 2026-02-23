@@ -50,7 +50,7 @@
                     @csrf
                     <div>
                         <label for="date">Date</label>
-                        <input type="date" name="date" id="date" />
+                        <input type="date" name="date" id="date" value="{{ old('date', now()->toDateString()) }}" />
                     </div>
                     <div>
                         <label for="time">Time</label>
